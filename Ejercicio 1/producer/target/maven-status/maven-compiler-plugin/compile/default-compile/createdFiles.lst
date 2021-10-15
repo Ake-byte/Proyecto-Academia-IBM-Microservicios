@@ -1,0 +1,6 @@
+com\ibm\ejercicio1\producer\ProducerApplication.class
+com\ibm\ejercicio1\producer\service\CreditCardServiceImpl.class
+com\ibm\ejercicio1\producer\model\CreditCard.class
+com\ibm\ejercicio1\producer\dao\ICreditCardDao.class
+com\ibm\ejercicio1\producer\service\ICreditCardService.class
+com\ibm\ejercicio1\producer\controller\CreditCardRestController.class
