@@ -12,7 +12,7 @@ import com.ibm.ejercicio2.consumer2.model.Bank;
 @FeignClient(name = "SEARCH-BANK-SERVICE")
 public interface IBankRest {
 	
-	@GetMapping(value = "/bank/location/{state}")
+	@GetMapping(value = "/bank/location/{gps}")
 	public List<Bank> listBanks(
-			@PathVariable(value = "state") String state);
+			@PathVariable(value = "gps") String[] gps);
 }

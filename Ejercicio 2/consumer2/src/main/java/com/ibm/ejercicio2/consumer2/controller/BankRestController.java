@@ -17,9 +17,14 @@ public class BankRestController {
 	@Autowired
 	private IBankRest bankRest;
 
-	@GetMapping(value = "/searchBank/{state}")
-	public List<Bank> listBanks(@PathVariable(value = "state") String state){
-		return bankRest.listBanks(state);
+	@GetMapping(value = "/searchBank/{gps}")
+	public List<Bank> listBanks(@PathVariable(value = "gps") String[] gps){
+		return bankRest.listBanks(gps);
+		
+		
+		//return null;
 	}
+	
+	
 
 }
