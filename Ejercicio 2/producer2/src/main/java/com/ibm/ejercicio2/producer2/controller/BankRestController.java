@@ -31,8 +31,8 @@ public class BankRestController {
 			}
 		}
 		
-		double latGps = Double.parseDouble(gps[0]);
-		double lonGps = Double.parseDouble(gps[1]);
+		double latGps = Double.parseDouble(gps[1]);
+		double lonGps = Double.parseDouble(gps[0]);
 		
 		return bankService.findNearestBanksAndBranches(latGps, lonGps, banksAndBranches);
 	}
