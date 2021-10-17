@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ public class CreditCardRestController {
 	private IPassionService passionService;
 
 	@GetMapping("/availableCreditCards/{passion}/{salary}/{age}")
-	public List<CreditCard> listAvailableCreditCards(@PathVariable(value = "passion") String[] passionName,
+	public ResponseEntity<List<CreditCard>> listAvailableCreditCards(@PathVariable(value = "passion") String[] passionName,
 			@PathVariable(value = "salary") Double salary, @PathVariable(value = "age") Integer age) {
 
 		List<Passion> passions = new ArrayList<>();
@@ -50,6 +52,11 @@ public class CreditCardRestController {
 			}
 		}
 		
-		return availableCreditCard;
+		if(availableCreditCard.isEmpty()) {
+			throw new MyMessageHandler("No hay tarjetas disponibles");
+		}else {
+			return new ResponseEntity<>(availableCreditCard, HttpStatus.OK) ;
+		}
+		
 	}
 }
